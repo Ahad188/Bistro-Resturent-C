@@ -32,7 +32,7 @@ const Menu = () => {
             <MenuCategory items={soup} title={"soup"} img={soupImg}></MenuCategory>
            
            
-      <h1>Men men menu</h1>
+       
     </div>
   );
 };

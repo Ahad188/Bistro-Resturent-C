@@ -15,7 +15,7 @@ const Testimonials = () => {
     fetch("../../../../public/reviews.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+     //    console.log(data);
         setReviews(data);
       });
   }, []);
