@@ -1,4 +1,4 @@
-import FoodCard from "../../../Components/SectionTitle/FoodCard/FoodCard";
+import FoodCard from "../../../Components/FoodCard/FoodCard";
 
  
 
