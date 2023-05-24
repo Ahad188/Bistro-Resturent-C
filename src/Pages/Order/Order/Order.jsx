@@ -28,6 +28,7 @@ const Order = () => {
       </Helmet>
       <Cover img={orderImg} title={"Order Food"}></Cover>
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+                <div className="text-center mt-5 mb-5 text-5xl">
                 <TabList>
                     <Tab>Salad</Tab>
                     <Tab>Pizza</Tab>
@@ -35,6 +36,7 @@ const Order = () => {
                     <Tab>Dessert</Tab>
                     <Tab>Drinks</Tab>
                 </TabList>
+                </div>
                 <TabPanel>
                     <OrderTab items={salad}></OrderTab>
                 </TabPanel>
