@@ -1,11 +1,13 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome } from 'react-icons/fa';
+import { FaShoppingCart, FaWallet, FaCalendarAlt, FaHome, FaUtensils, FaBook, FaUser } from 'react-icons/fa';
 import useCart from "../hookes/useCart";
 
  
 
 const Dashboard = () => {
      const [cart] = useCart();
+     // todo : load data from the server to have dynamics isAdmin based on data
+     const isAdmin = true; 
      return (
           <div className="drawer drawer-mobile">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -17,8 +19,22 @@ const Dashboard = () => {
           <div className="drawer-side bg-[#D1A054]">
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
             <ul className="menu p-4 w-80 ">
-             
-            <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
+             {
+               isAdmin ? <>
+                <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
+                    <li><NavLink to="/dashboard/reservations"><FaUtensils/> Add Item</NavLink></li>
+                    <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Mange Item</NavLink></li>
+                    <li><NavLink to="/dashboard/history"><FaBook></FaBook> Mange Booking</NavLink></li>
+                    <li><NavLink to="/dashboard/allusers"><FaUser></FaUser> All users</NavLink></li>
+                
+                    <div className="divider"></div>
+                    <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
+                    <li><NavLink to="/menu"> Our Menu</NavLink></li>
+                    <li><NavLink to="/order/salad">Order Food</NavLink></li>
+               
+               </> :
+                <>
+                <li><NavLink to="/dashboard/home"><FaHome></FaHome> User Home</NavLink></li>
                     <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
                     <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
                     <li>
@@ -31,6 +47,11 @@ const Dashboard = () => {
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
                     <li><NavLink to="/menu"> Our Menu</NavLink></li>
                     <li><NavLink to="/order/salad">Order Food</NavLink></li>
+               
+               
+               </>
+             }
+           
             </ul>
           
           </div>
