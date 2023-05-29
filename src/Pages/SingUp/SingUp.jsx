@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from 'sweetalert2'
+import SochailLogin from "../Shared/SochailLogin/SochailLogin";
 
  
 
@@ -102,7 +103,8 @@ const SingUp = () => {
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
                             </div>
                         </form>
-                        <p><small>Already have an account <Link to="/login">Login</Link></small></p>
+                        <p className="text-center text-2xl"><small>Already have an account <Link to="/login">Login</Link></small></p>
+                        <SochailLogin/>
                     </div>
                 </div>
             </div>
