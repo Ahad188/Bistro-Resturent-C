@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaShoppingCart } from 'react-icons/fa';
 import { AuthContext } from "../../../Provider/AuthProvider";
 import useCart from "../../../hookes/useCart";
+ 
 
  
 
@@ -19,11 +20,11 @@ const Navbar = () => {
         <li><Link to="/menu">Our Menu</Link></li>
         <li><Link to="/order/salad">Order Food</Link></li>
         <li><Link to="/secret">Secret</Link></li>
-         <li>
+        <li>
             <Link to="/dashboard/mycart">
                 <button className="btn gap-2">
                     <FaShoppingCart></FaShoppingCart>
-                    <div className="badge badge-secondary">+{cart.length}</div>
+                    <div className="badge badge-secondary">+{cart?.length }</div>
                 </button>
             </Link>
         </li>
