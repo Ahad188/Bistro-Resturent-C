@@ -9,7 +9,7 @@ import useAuth from './useAuth';
 
 const useCart = () =>{
      // const { user, loading } = useContext(AuthContext);
-     const { user} =  useAuth();
+     const { user,loading} =  useAuth();
     
 //     const token = localStorage.getItem('Token');
 
@@ -17,7 +17,7 @@ const useCart = () =>{
  
     const { refetch, data: cart = [] } = useQuery({
         queryKey: ['carts', user?.email],
-     //    enabled: !loading,
+        enabled: !loading,
      //    queryFn: async () => {
      //        const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`, { headers: {
      //            authorization: `bearer ${token}`
