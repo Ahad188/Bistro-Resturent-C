@@ -9,6 +9,7 @@ import useCart from "../../../hookes/useCart";
 
 const Navbar = () => {
      const {user,logOut} = useContext(AuthContext)
+     console.log(user);
      const [cart] = useCart()
      const handleLogOut=()=>{
           logOut()
@@ -30,7 +31,10 @@ const Navbar = () => {
         </li>
         {
             user ? <>
-                <span>{user?.displayName}</span>
+                <span className="flex justify-between items-center">{user?.displayName}
+                <img className="h-7 w-7 mt-2 rounded-full" src={user?.photoURL} alt="" />
+                </span>
+              
                 <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
             </> : <>
                 <li><Link to="/login">Login</Link></li>
