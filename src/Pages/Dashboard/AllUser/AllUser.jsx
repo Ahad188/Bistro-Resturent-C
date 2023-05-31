@@ -29,7 +29,7 @@ const AllUser = () => {
  }
 
 
- const handleDelete = (user)=>{}
+ const handleDelete = ()=>{};
 
   return (
     <div className="w-full">
