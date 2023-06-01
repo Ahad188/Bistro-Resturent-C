@@ -1,11 +1,35 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
  
+const img_hosting_token = import.meta.env.VITE_IMAGE_KEY;
 
 const AddItem = () => {
      const { register, handleSubmit} = useForm();
+     // console.log(img_hosting_token);
+
+     const img_hosting_Url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
+
+
      const onSubmit = data => {
+          const formData = new FormData()
+          formData.append('image', data.image[0])
+
           console.log(data);
+          
+          fetch(img_hosting_Url,{
+               method:'POST',
+               body: formData,
+          })
+          .then(res=>res.json())
+          .then(imgResponse=>{
+               if(imgResponse.success){
+                    const imgURL = imgResponse.data.display_url;
+                    const {name, price, category, recipe} = data;
+                    const newItem = {name, price: parseFloat(price), category, recipe, image:imgURL}
+                    console.log(newItem)
+                    
+               }
+          })
      }
      return (
           <div className="w-full px-10">
