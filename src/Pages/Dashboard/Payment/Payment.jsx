@@ -2,12 +2,13 @@ import { Elements } from "@stripe/react-stripe-js";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import CheckoutForm from "./CheckoutForm";
 import { loadStripe } from "@stripe/stripe-js";
-import useMenu from "../../../hookes/useMenu";
+import useCart from "../../../hookes/useCart";
+ 
 
  
 const stripePromise = loadStripe(import.meta.env.VITE_PAMENT_pk);
 const Payment = () => {
-     const [cart] = useMenu();
+     const [cart] = useCart();
      const total = cart.reduce((sum, item)=>item.price + sum , 0)
      const price = parseFloat(total.toFixed(2))
      return (
