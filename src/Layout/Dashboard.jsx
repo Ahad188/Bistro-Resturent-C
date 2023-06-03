@@ -26,7 +26,7 @@ const Dashboard = () => {
                 <li><NavLink to="/dashboard/adminhome"><FaHome></FaHome> User Home</NavLink></li>
                     <li><NavLink to="/dashboard/additem"><FaUtensils/> Add an Item</NavLink></li>
                     <li><NavLink to="/dashboard/manageitems"><FaWallet></FaWallet> Mange Item</NavLink></li>
-                    <li><NavLink to="/dashboard/history"><FaBook></FaBook> Mange Booking</NavLink></li>
+                    <li><NavLink to="/"><FaBook></FaBook> Mange Booking(not implemented)</NavLink></li>
                     <li><NavLink to="/dashboard/allusers"><FaUser></FaUser> All users</NavLink></li>
                 
                     <div className="divider"></div>
@@ -37,8 +37,8 @@ const Dashboard = () => {
                </> :
                 <>
                 <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
-                    <li><NavLink to="/dashboard/reservations"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
-                    <li><NavLink to="/dashboard/history"><FaWallet></FaWallet> Payment History</NavLink></li>
+                    <li><NavLink to="/"><FaCalendarAlt></FaCalendarAlt> Reservations</NavLink></li>
+                    <li><NavLink to="/"><FaWallet></FaWallet> Payment History</NavLink></li>
                     <li>
                         <NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart
                             <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
