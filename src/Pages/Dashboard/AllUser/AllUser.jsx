@@ -5,33 +5,32 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hookes/useAxiosSecure";
 
 const AllUser = () => {
-     const [axiosSecure] = useAxiosSecure();
+  const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await axiosSecure.get("/users");
     return res.data;
   });
- const handleMakeAdmin=(user)=>{
-     fetch(`http://localhost:5000/users/admin/${user._id}`,{
-          method:'PATCH'
-     })
-     .then(res=>res.json())
-     .then(data=>{
-          console.log(data);
-          if(data.modifiedCount){
-               refetch()
-               Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title:  `${user.name} is an Admin Now!`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-          }
-     })
- }
+  const handleMakeAdmin = (user) => {
+    fetch(`https://bistro-server-beige.vercel.app/users/admin/${user._id}`, {
+      method: "PATCH",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount) {
+          refetch();
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${user.name} is an Admin Now!`,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
 
-
- const handleDelete = ()=>{};
+  const handleDelete = () => {};
 
   return (
     <div className="w-full">
@@ -59,14 +58,18 @@ const AllUser = () => {
                 <th>{index + 1}</th>
                 <td> {user.name}</td>
                 <td>{user.email}</td>
-                <td>{ user.role === 'admin' ? "Admin":<button
-                     onClick={() => handleMakeAdmin(user)}
-                    className="btn btn-ghost bg-orange-400 text-white"
-                  >
-                    <FaUserShield></FaUserShield>
-                  </button>
-                    
-                    }</td>
+                <td>
+                  {user.role === "admin" ? (
+                    "Admin"
+                  ) : (
+                    <button
+                      onClick={() => handleMakeAdmin(user)}
+                      className="btn btn-ghost bg-orange-400 text-white"
+                    >
+                      <FaUserShield></FaUserShield>
+                    </button>
+                  )}
+                </td>
                 <td>
                   <button
                     onClick={() => handleDelete(user)}

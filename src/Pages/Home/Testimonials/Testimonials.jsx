@@ -7,15 +7,15 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Rating } from "@smastrom/react-rating";
-import '@smastrom/react-rating/style.css'
+import "@smastrom/react-rating/style.css";
 
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://bistro-server-beige.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => {
-     //    console.log(data);
+        //    console.log(data);
         setReviews(data);
       });
   }, []);
